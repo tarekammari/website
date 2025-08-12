@@ -1,12 +1,12 @@
 import ItemCard from "@/components/ItemCard";
-import { categories, projects } from "@/lib/data";
+import { categories, projects } from "../../lib/data";
 
 export const metadata = {
   title: "Projects — TAREK AMMARI",
 };
 
-export default function ProjectsPage({ searchParams }: { searchParams: { category?: string } }) {
-  const category = searchParams?.category ?? "all";
+export default async function ProjectsPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const { category = "all" } = await searchParams;
   const data = category === "all" ? projects : projects.filter((p) => p.category === category);
   return (
     <div className="space-y-8">
