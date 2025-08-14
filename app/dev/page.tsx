@@ -2,7 +2,7 @@ import Reveal from "@/components/Reveal";
 
 export default function DevPage() {
   return (
-    <div className="space-y-8">
+    <div className="page-hero space-y-8">
       <Reveal>
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight">Developer Experience</h1>
       </Reveal>

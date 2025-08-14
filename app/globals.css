@@ -95,6 +95,12 @@ body {
   border-color: color-mix(in oklab, var(--foreground) 18%, transparent);
 }
 
+/* Consistent hero height across pages */
+.page-hero {
+  /* Responsive min-height roughly matching Home hero presence */
+  min-height: clamp(360px, 52vh, 640px);
+}
+
 /* Marquee animation for brand strip */
 @keyframes marquee {
   0% { transform: translateX(0); }

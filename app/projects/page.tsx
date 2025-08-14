@@ -10,7 +10,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
   const { category = "all" } = await searchParams;
   const data = category === "all" ? projects : projects.filter((p) => p.category === category);
   return (
-    <div className="space-y-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Projects</h1>
@@ -31,7 +31,7 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {data.map((item, i) => (
           <Reveal key={item.id} delay={i * 70}>
             <ItemCard item={item} />

@@ -5,9 +5,33 @@ export type CatalogItem = {
   price: number;
   category: "wordpress" | "nextjs" | "react" | "htmlcss";
   kind: "project" | "course";
+  /** Optional external link to live project */
+  url?: string;
+  /** Optional image (screenshot/cover). If not provided, card shows no image. */
+  image?: string;
 };
 
 export const projects: CatalogItem[] = [
+  {
+    id: "run-fitness-tracker",
+    title: "Run — Fitness Tracker",
+    description: "Running tracker web app with clean UI and fast performance.",
+    price: 0,
+    category: "wordpress",
+    kind: "project",
+    url: "https://astrarun.opgiouedsouf.com/",
+    image: "https://s.wordpress.com/mshots/v1/https://run.tarekammari.com?w=1200",
+  },
+  {
+    id: "digitalforce-agency",
+    title: "Digital Force — Agency",
+    description: "Modern digital agency website with strong branding and UX.",
+    price: 0,
+    category: "wordpress",
+    kind: "project",
+    url: "https://digitalforce.opgiouedsouf.com/",
+    image: "https://s.wordpress.com/mshots/v1/https://digitalforce.tarekammari.com?w=1200",
+  },
   {
     id: "wp-shop-starter",
     title: "WordPress Shop Starter",

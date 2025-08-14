@@ -44,7 +44,7 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <PageContainer>
-              <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-[min(20vh,200px)]">
                 {children}
               </main>
             </PageContainer>
