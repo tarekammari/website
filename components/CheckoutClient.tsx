@@ -25,7 +25,7 @@ export default function CheckoutClient() {
 
   return (
     <div className="grid gap-8 sm:grid-cols-3">
-      <form onSubmit={onSubmit} className="sm:col-span-2 grid gap-4 rounded-lg border border-foreground/10 p-6">
+      <form onSubmit={onSubmit} className="card sm:col-span-2 grid gap-4 rounded-lg border border-foreground/10 p-6">
         <h1 className="text-2xl font-bold tracking-tight">Checkout</h1>
         <label className="grid gap-1 text-sm">
           <span>Name</span>
@@ -51,14 +51,14 @@ export default function CheckoutClient() {
         <button
           type="submit"
           disabled={loading}
-          className="mt-2 rounded-md bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90 disabled:opacity-50"
+          className="btn-ghost mt-2 rounded-md bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90 disabled:opacity-50"
         >
           {loading ? "Processing…" : "Pay & Complete"}
         </button>
         <p className="text-xs text-foreground/60">Payment is simulated. Integrate Stripe later by adding API routes.</p>
       </form>
 
-      <aside className="grid gap-3 rounded-lg border border-foreground/10 p-6 h-fit">
+      <aside className="card grid gap-3 rounded-lg border border-foreground/10 p-6 h-fit">
         <h2 className="font-semibold">Order Summary</h2>
         <ul className="grid gap-2 text-sm">
           {items.map((it) => (

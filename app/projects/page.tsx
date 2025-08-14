@@ -1,4 +1,5 @@
 import ItemCard from "@/components/ItemCard";
+import Reveal from "@/components/Reveal";
 import { categories, projects } from "../../lib/data";
 
 export const metadata = {
@@ -31,8 +32,10 @@ export default async function ProjectsPage({ searchParams }: { searchParams: Pro
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {data.map((item) => (
-          <ItemCard key={item.id} item={item} />
+        {data.map((item, i) => (
+          <Reveal key={item.id} delay={i * 70}>
+            <ItemCard item={item} />
+          </Reveal>
         ))}
       </div>
     </div>

@@ -49,7 +49,7 @@ export default function ContactForm() {
           className="rounded-md border border-foreground/20 bg-transparent px-3 py-2"
         />
       </label>
-      <button className="rounded-md bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90">Send</button>
+      <button className="btn-ghost rounded-md bg-foreground text-background px-4 py-2 text-sm font-medium hover:opacity-90">Send</button>
     </form>
   );
 }

@@ -4,6 +4,8 @@ import "./globals.css";
 import { Providers } from "../app/providers";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PageContainer from "../components/PageContainer";
+import PointerGlow from "../components/PointerGlow";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,12 +43,15 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Navbar />
-            <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              {children}
-            </main>
+            <PageContainer>
+              <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                {children}
+              </main>
+            </PageContainer>
             <Footer />
           </div>
         </Providers>
+        <PointerGlow />
       </body>
     </html>
   );

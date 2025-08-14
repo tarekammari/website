@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useCart, useTheme } from "@/app/providers";
+import { useCart } from "@/app/providers";
 import ThemeToggle from "@/components/ThemeToggle";
 import { usePathname } from "next/navigation";
+import { ShoppingCart } from "@/components/icons";
 
 const links = [
   { href: "/", label: "Home" },
@@ -43,10 +44,13 @@ export default function Navbar() {
           <ThemeToggle />
           <Link
             href="/cart"
-            className="relative rounded-full border border-foreground/20 px-3 py-1.5 text-sm hover:bg-foreground/5"
+            className="btn-ghost relative rounded-full border border-foreground/20 px-3 py-1.5 text-sm hover:bg-foreground/5"
             aria-label="Cart"
           >
-            <span>Cart</span>
+            <span className="inline-flex items-center gap-2">
+              <ShoppingCart className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">Cart</span>
+            </span>
             <span className="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground/10 px-2 text-xs">
               {items.reduce((sum, it) => sum + it.quantity, 0)}
             </span>
