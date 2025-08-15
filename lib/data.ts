@@ -20,7 +20,7 @@ export const projects: CatalogItem[] = [
     category: "wordpress",
     kind: "project",
     url: "https://astrarun.opgiouedsouf.com/",
-    image: "https://s.wordpress.com/mshots/v1/https://run.tarekammari.com?w=1200",
+    image: "/images/astraRun.svg",
   },
   {
     id: "digitalforce-agency",
@@ -30,7 +30,7 @@ export const projects: CatalogItem[] = [
     category: "wordpress",
     kind: "project",
     url: "https://digitalforce.opgiouedsouf.com/",
-    image: "https://s.wordpress.com/mshots/v1/https://digitalforce.tarekammari.com?w=1200",
+    image: "/images/degitalForce.svg",
   },
   {
     id: "wp-shop-starter",
