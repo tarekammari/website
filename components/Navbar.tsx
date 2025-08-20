@@ -17,7 +17,6 @@ const links = [
 export default function Navbar() {
   const { items } = useCart();
   const pathname = usePathname();
-  const isAIPage = pathname === "/ai";
   const activeClass =
     "text-foreground/90 hover:text-foreground font-medium border-b-2 border-transparent hover:border-foreground/30";
   const currentClass = "text-foreground font-semibold border-b-2 border-foreground";
@@ -42,39 +41,22 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className={isAIPage ? "pointer-events-none opacity-50" : undefined} aria-disabled={isAIPage}>
-            <ThemeToggle />
-          </div>
-          {isAIPage ? (
-            <div
-              className="btn-ghost relative rounded-full border border-foreground/20 px-3 py-1.5 text-sm opacity-50 pointer-events-none select-none"
-              aria-disabled
-              aria-label="Cart"
-              tabIndex={-1}
-            >
-              <span className="inline-flex items-center gap-2">
-                <ShoppingCart className="h-4 w-4" aria-hidden />
-                <span className="hidden sm:inline">Cart</span>
-              </span>
+          <ThemeToggle />
+          <Link
+            href="/cart"
+            className="btn-ghost relative rounded-full border border-foreground/20 px-3 py-1.5 text-sm hover:bg-foreground/5"
+            aria-label="Cart"
+          >
+            <span className="inline-flex items-center gap-2">
+              <ShoppingCart className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">Cart</span>
+            </span>
+            {items.length > 0 && (
               <span className="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground/10 px-2 text-xs">
                 {items.reduce((sum, it) => sum + it.quantity, 0)}
               </span>
-            </div>
-          ) : (
-            <Link
-              href="/cart"
-              className="btn-ghost relative rounded-full border border-foreground/20 px-3 py-1.5 text-sm hover:bg-foreground/5"
-              aria-label="Cart"
-            >
-              <span className="inline-flex items-center gap-2">
-                <ShoppingCart className="h-4 w-4" aria-hidden />
-                <span className="hidden sm:inline">Cart</span>
-              </span>
-              <span className="ml-2 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-foreground/10 px-2 text-xs">
-                {items.reduce((sum, it) => sum + it.quantity, 0)}
-              </span>
-            </Link>
-          )}
+            )}
+          </Link>
         </div>
       </div>
 

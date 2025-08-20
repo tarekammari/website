@@ -1,37 +1,51 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "@/app/providers";
 
-export default function AIPage() {
-  const { theme, setTheme } = useTheme();
-  const prevTheme = useRef(theme);
+const DeveloperAnimation = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const skills = ["AI Solutions", "Machine Learning", "Web Development", "Automation"];
 
   useEffect(() => {
-    prevTheme.current = theme;
-    setTheme("dark");
-    return () => {
-      // Restore previous theme when leaving the page
-      setTheme(prevTheme.current);
-    };
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % skills.length);
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative">
-      {/* Fixed full-viewport 3D Spline */}
-      <div className="fixed inset-0 z-10 overflow-hidden">
-        <iframe
-          src="https://my.spline.design/claritystream-soWj3joVdwVs5SxtLfdgn3YP/"
-          title="AI 3D Hero"
-          frameBorder={0}
-          width="100%"
-          height="100%"
-          className="block w-screen h-screen -translate-y-6 sm:-translate-y-10"
-          allowFullScreen
-        />
+    <div className="relative h-16 overflow-hidden text-center">
+      {skills.map((skill, index) => (
+        <div
+          key={skill}
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+            index === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          <span className="font-light tracking-wide bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            {skill}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default function AIPage() {
+  const { theme, resolvedTheme } = useTheme();
+
+  return (
+    <div className="min-h-screen flex flex-col items-center p-6 text-center">
+      <div className="max-w-5xl mx-auto w-full mt-20">
+        <div className="font-sans text-5xl md:text-7xl font-normal tracking-tighter text-foreground/90 mb-12">
+          Coming Soon
+        </div>
+        
+        <div className="text-2xl md:text-4xl font-light text-muted-foreground">
+          <DeveloperAnimation />
+        </div>
       </div>
-      {/* Spacer to ensure the page has scroll context if needed; adjust or remove as desired */}
-      <div className="h-screen" aria-hidden />
     </div>
   );
 }

@@ -3,7 +3,7 @@ export type CatalogItem = {
   title: string;
   description: string;
   price: number;
-  category: "wordpress" | "nextjs" | "react" | "htmlcss";
+  category?: "wordpress" | "nextjs" | "react" | "htmlcss";
   kind: "project" | "course";
   /** Optional external link to live project */
   url?: string;
@@ -12,6 +12,16 @@ export type CatalogItem = {
 };
 
 export const projects: CatalogItem[] = [
+  {
+    id: "kaf-wordpress",
+    title: "KAF — Professional Services",
+    description: "A professional WordPress website for KAF, featuring modern design, responsive layout, and optimized performance for service-based businesses.",
+    price: 0,
+    category: "wordpress", 
+    kind: "project",
+    url: "https://kaf.tarekammari.com",
+    image: "/images/kaf.svg",
+  },
   {
     id: "run-fitness-tracker",
     title: "Run — Fitness Tracker",
@@ -33,36 +43,40 @@ export const projects: CatalogItem[] = [
     image: "/images/degitalForce.svg",
   },
   {
-    id: "wp-shop-starter",
-    title: "WordPress Shop Starter",
-    description: "Optimized WooCommerce theme + setup for fast online stores.",
-    price: 149,
-    category: "wordpress",
+    id: "project-1",
+    title: "[In Development] Project 1",
+    description: "Project in development. More details coming soon.",
+    price: 0,
     kind: "project",
+    url: "#",
+    image: "/images/placeholder-project.svg"
   },
   {
-    id: "nextjs-saas-kit",
-    title: "Next.js SaaS Kit",
-    description: "Production-ready SaaS boilerplate with auth and billing hooks.",
-    price: 199,
-    category: "nextjs",
+    id: "project-2",
+    title: "[In Development] Project 2",
+    description: "Project in development. More details coming soon.",
+    price: 0,
     kind: "project",
+    url: "#",
+    image: "/images/placeholder-project.svg"
   },
   {
-    id: "react-dashboard",
-    title: "React Admin Dashboard",
-    description: "Clean admin UI with charts, tables, and authentication.",
-    price: 129,
-    category: "react",
+    id: "project-3",
+    title: "[In Development] Project 3",
+    description: "Project in development. More details coming soon.",
+    price: 0,
     kind: "project",
+    url: "#",
+    image: "/images/placeholder-project.svg"
   },
   {
-    id: "htmlcss-landing",
-    title: "HTML/CSS Landing Page",
-    description: "High-converting landing page with modern CSS and accessibility.",
-    price: 79,
-    category: "htmlcss",
+    id: "project-4",
+    title: "[In Development] Project 4",
+    description: "Project in development. More details coming soon.",
+    price: 0,
     kind: "project",
+    url: "#",
+    image: "/images/placeholder-project.svg"
   },
 ];
 

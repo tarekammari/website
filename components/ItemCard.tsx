@@ -52,7 +52,9 @@ export default function ItemCard({ item }: { item: CatalogItem }) {
       </div>
       <div className="flex items-center justify-between mt-2">
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium">${item.price}</span>
+          {item.price > 0 && (
+            <span className="text-sm font-medium">${item.price}</span>
+          )}
           {item.url && (
             <a
               href={item.url}
@@ -64,12 +66,14 @@ export default function ItemCard({ item }: { item: CatalogItem }) {
             </a>
           )}
         </div>
-        <button
-          className="btn-ghost text-sm rounded-md border border-foreground/20 px-3 py-1.5 hover:bg-foreground/5"
-          onClick={() => addItem({ id: item.id, title: item.title, price: item.price, kind: item.kind })}
-        >
-          Add to cart
-        </button>
+        {item.price > 0 && (
+          <button
+            className="btn-ghost text-sm rounded-md border border-foreground/20 px-3 py-1.5 hover:bg-foreground/5"
+            onClick={() => addItem({ id: item.id, title: item.title, price: item.price, kind: item.kind })}
+          >
+            Add to cart
+          </button>
+        )}
       </div>
     </div>
   );
